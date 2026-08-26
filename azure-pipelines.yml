@@ -28,7 +28,13 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
+task: VSTest@2
+  displayName: 'Run Selenium NUnit Tests'
   inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\bin\$(buildConfiguration)\**\Selenium101_TestMu_Project.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
