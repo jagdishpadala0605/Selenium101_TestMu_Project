@@ -28,7 +28,7 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-task: VSTest@2
+- task: VSTest@2
   displayName: 'Run Selenium NUnit Tests'
   inputs:
     testSelector: 'testAssemblies'
