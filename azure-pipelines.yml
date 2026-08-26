@@ -38,3 +38,12 @@ steps:
     searchFolder: '$(System.DefaultWorkingDirectory)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+- task: CopyFiles@2
+  inputs:
+    Contents: '**'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
